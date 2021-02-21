@@ -25,7 +25,9 @@ soup = BeautifulSoup(plain_text, 'html.parser')
 urls = []
 # Now we will get all links using .findAll() and use "a" tag which the indicator for links in html.
 for link in soup.find_all('a'):
+    title = link.string
     print(link.get('href'))
+    print(title)
 
 
 
