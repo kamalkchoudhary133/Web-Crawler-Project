@@ -26,8 +26,11 @@ urls = []
 # Now we will get all links using .findAll() and use "a" tag which the indicator for links in html.
 for link in soup.find_all('a'):
     title = link.string
-    print(link.get('href'))
-    print(title)
+# Now we will create a file which will have all the links and their corresponding titles in it.
+    file = open("results.txt", 'a')
+    file.write(str(title) + "\n")
+    file.write(link.get('href') + "\n")
+    file.close()
 
 
 
