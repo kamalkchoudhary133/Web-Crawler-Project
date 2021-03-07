@@ -33,9 +33,8 @@ def crawl(url):
             crawl(url)
 
 
-# website to be scrape
+
 site = args.url
 
-# calling function
-crawl(site)
 
+crawl(site)
