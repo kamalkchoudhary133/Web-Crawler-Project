@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 import argparse
 
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--url", help="Enter the target URL")
 '''parser.add_argument("--depth", help="Enter desired depth for web crawler to search")'''
@@ -20,12 +21,14 @@ def crawl(url):
 
     for link in all_links:
         link = link.get('href')
+        title = soup.find('title')
 
         if link.startswith("/"):
             url = url + link
 
         if url not in urls:
             urls.append(url)
+            print(title.string)
             print(url)
             crawl(url)
 
@@ -35,3 +38,4 @@ site = args.url
 
 # calling function
 crawl(site)
+
